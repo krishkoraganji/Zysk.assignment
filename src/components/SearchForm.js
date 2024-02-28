@@ -28,7 +28,7 @@ const SearchPage = () => {
     searchQuery: ''
   };
 
-  const validationSchema = Yup.object().shape({
+  const validation = Yup.object().shape({
       searchQuery: Yup.string()
           .required('Search query is required')
           .matches(/^[a-zA-Z\s]*$/, 'Search query should not contain numbers or special characters')
@@ -49,7 +49,7 @@ const SearchPage = () => {
       <h1 className="mt-5 mb-4">Search Page</h1>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        validationSchema={validation}
         onSubmit={handleSubmit}
       >
         <Form>
